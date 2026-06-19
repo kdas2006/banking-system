@@ -1,12 +1,4 @@
-// app.js — SimpleBank Frontend Logic
-// This file handles everything: login, register, deposit, withdraw, transfer
-
 const API = 'http://localhost:3000'; // The backend server address
-
-// ============================================
-//           AUTH HELPER FUNCTIONS
-// ============================================
-
 // Check if user is logged in. If not, send them to the login page.
 function checkAuth() {
   const user = localStorage.getItem('simplebank_user');
@@ -29,20 +21,12 @@ function logout() {
   window.location.href = 'index.html';
 }
 
-// ============================================
-//           SHOW/HIDE MESSAGE
-// ============================================
-
 // Show a success (green) or error (red) message
 function showMessage(elementId, text, type) {
   const el = document.getElementById(elementId);
   el.textContent = text;
   el.className = 'message ' + type;
 }
-
-// ============================================
-//           LOGIN PAGE LOGIC
-// ============================================
 
 // Switch between Login and Register tabs
 function showTab(tab, e) {
@@ -114,10 +98,6 @@ async function login() {
     showMessage('login-message', 'Cannot connect to server. Make sure it is running.', 'error');
   }
 }
-
-// ============================================
-//           DASHBOARD PAGE LOGIC
-// ============================================
 
 // Load everything on the dashboard
 async function loadDashboard() {
@@ -234,10 +214,6 @@ async function withdraw() {
   }
 }
 
-// ============================================
-//           TRANSFER PAGE LOGIC
-// ============================================
-
 // Load the transfer page (show username + balance)
 async function loadTransferPage() {
   const user = checkAuth();
@@ -296,10 +272,6 @@ async function transfer() {
     showMessage('transfer-message', 'Server error. Please try again.', 'error');
   }
 }
-
-// ============================================
-//           HISTORY PAGE LOGIC
-// ============================================
 
 // Load all transactions for the history page
 async function loadHistory() {
