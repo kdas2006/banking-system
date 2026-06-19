@@ -1,0 +1,12 @@
+# Node.js dependencies folder - don't push this to GitHub
+node_modules/
+
+# macOS system file
+.DS_Store
+
+# Windows system file
+Thumbs.db
+
+# Editor config folders
+.vscode/
+.idea/

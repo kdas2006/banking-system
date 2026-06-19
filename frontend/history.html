@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleBank — Transaction History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ---- NAVBAR ---- -->
+  <nav class="navbar">
+    <h1>🏦 SimpleBank</h1>
+    <div class="navbar-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="transfer.html">Transfer</a>
+      <a href="history.html">History</a>
+    </div>
+    <div class="navbar-user">
+      <span>Hello, <strong id="user-name"></strong></span>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ---- PAGE CONTENT ---- -->
+  <div class="container">
+
+    <div class="page-header">
+      <h2>Transaction History</h2>
+      <p>A full record of all your account activity</p>
+    </div>
+
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Date &amp; Time</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Balance After</th>
+          </tr>
+        </thead>
+        <tbody id="history-body">
+          <tr>
+            <td colspan="4" class="empty-state">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    loadHistory(); // Load all transactions when page opens
+  </script>
+
+</body>
+</html>

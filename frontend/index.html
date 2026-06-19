@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleBank — Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="login-card">
+
+      <h1>🏦 SimpleBank</h1>
+      <p>Your Trusted Banking Partner</p>
+
+      <!-- Tab Buttons -->
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('login', event)">Login</button>
+        <button class="tab" onclick="showTab('register', event)">Register</button>
+      </div>
+
+      <!-- ---- LOGIN FORM ---- -->
+      <div id="login" class="tab-content active">
+        <h2>Login to your account</h2>
+
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button class="btn btn-primary" onclick="login()">Login</button>
+
+        <p id="login-message" class="message"></p>
+      </div>
+
+      <!-- ---- REGISTER FORM ---- -->
+      <div id="register" class="tab-content">
+        <h2>Create a new account</h2>
+
+        <input type="text" id="reg-name" placeholder="Your Full Name">
+        <input type="text" id="reg-username" placeholder="Choose a Username">
+        <input type="password" id="reg-password" placeholder="Choose a Password">
+        <button class="btn btn-success" onclick="register()">Create Account</button>
+
+        <p id="register-message" class="message"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // If user is already logged in, skip the login page
+    if (localStorage.getItem('simplebank_user')) {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+
+</body>
+</html>

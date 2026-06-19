@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleBank — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ---- NAVBAR ---- -->
+  <nav class="navbar">
+    <h1>🏦 SimpleBank</h1>
+    <div class="navbar-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="transfer.html">Transfer</a>
+      <a href="history.html">History</a>
+    </div>
+    <div class="navbar-user">
+      <span>Hello, <strong id="user-name"></strong></span>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ---- PAGE CONTENT ---- -->
+  <div class="container">
+
+    <!-- Balance Card -->
+    <div class="balance-card">
+      <h2>Current Balance</h2>
+      <div class="amount" id="balance">Loading...</div>
+      <div class="sub-text">Savings Account</div>
+    </div>
+
+    <!-- Deposit and Withdraw (side by side) -->
+    <div class="two-cols">
+
+      <!-- Deposit -->
+      <div class="card">
+        <h3>💰 Deposit Money</h3>
+        <input type="number" id="deposit-amount" placeholder="Enter amount (₹)" min="1">
+        <button class="btn btn-success" onclick="deposit()">Deposit</button>
+        <p id="deposit-message" class="message"></p>
+      </div>
+
+      <!-- Withdraw -->
+      <div class="card">
+        <h3>💸 Withdraw Money</h3>
+        <input type="number" id="withdraw-amount" placeholder="Enter amount (₹)" min="1">
+        <button class="btn btn-danger" onclick="withdraw()">Withdraw</button>
+        <p id="withdraw-message" class="message"></p>
+      </div>
+
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="card">
+      <p class="section-title">Recent Transactions</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date &amp; Time</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody id="recent-tx-body">
+          <tr>
+            <td colspan="4" class="empty-state">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="view-all">
+        <a href="history.html">View all transactions →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    loadDashboard(); // Load all dashboard data when page opens
+  </script>
+
+</body>
+</html>
